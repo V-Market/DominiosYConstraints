@@ -1,5 +1,7 @@
 package dominiosyconstrains
 
+import org.apache.commons.io.filefilter.FalseFileFilter
+
 class User {
     String name
     String lastname
@@ -13,7 +15,11 @@ class User {
         age blank:false, nullable: false
         username blank:false, nullable: false
         password  minSize: 8 , blank: false, nullable: false, validator: {
-            if (!password.) return ['entryMissing']
+            def num = true
+            def myString = password.split()
+            if (myString.count {it == it.toLowerCase()} < 1) num = false
+            if (myString.count {it == it.toUpperCase()} < 1) num = false
+            if (!num) return false
         }
     }
 }
