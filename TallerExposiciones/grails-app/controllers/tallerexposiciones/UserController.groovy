@@ -101,4 +101,10 @@ class UserController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+    def test(){
+
+        def user = User.newInstance(name: "as",lastname: "ds", age: 14, username: "dakghsds", password: "fsdfsd")
+        render user
+    }
 }

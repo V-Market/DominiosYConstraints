@@ -6,7 +6,7 @@ class Admin extends User{
     //static hasMany = [fo : Forum]
 
     static constraints = {
-        level blank:false, size: 1..5
-        rating blank:false, size: 0..100
+        level (blank:false, min: 1, max: 5)
+        rating (blank:false, min: (double)0, max: (double) 100)
     }
 }
