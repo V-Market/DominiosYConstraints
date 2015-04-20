@@ -7,7 +7,7 @@
 		<g:message code="post.topic.label" default="Topic" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="topic" maxlength="50" required="" value="${postInstance?.topic}"/>
+	<g:textField name="topic" required="" value="${postInstance?.topic}"/>
 
 </div>
 
@@ -17,6 +17,15 @@
 		
 	</label>
 	<g:checkBox name="itsAllowed" value="${postInstance?.itsAllowed}" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: postInstance, field: 'forum', 'error')} required">
+	<label for="forum">
+		<g:message code="post.forum.label" default="Forum" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="forum" name="forum.id" from="${tallerexposiciones.Forum.list()}" optionKey="id" required="" value="${postInstance?.forum?.id}" class="many-to-one"/>
 
 </div>
 

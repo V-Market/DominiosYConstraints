@@ -7,7 +7,7 @@
 		<g:message code="admin.name.label" default="Name" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="name" maxlength="50" required="" value="${adminInstance?.name}"/>
+	<g:textField name="name" required="" value="${adminInstance?.name}"/>
 
 </div>
 
@@ -16,7 +16,7 @@
 		<g:message code="admin.lastname.label" default="Lastname" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="lastname" maxlength="50" required="" value="${adminInstance?.lastname}"/>
+	<g:textField name="lastname" required="" value="${adminInstance?.lastname}"/>
 
 </div>
 
@@ -47,12 +47,30 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: adminInstance, field: 'forums', 'error')} ">
+	<label for="forums">
+		<g:message code="admin.forums.label" default="Forums" />
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${adminInstance?.forums?}" var="f">
+    <li><g:link controller="forum" action="show" id="${f.id}">${f?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="forum" action="create" params="['admin.id': adminInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'forum.label', default: 'Forum')])}</g:link>
+</li>
+</ul>
+
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: adminInstance, field: 'level', 'error')} required">
 	<label for="level">
 		<g:message code="admin.level.label" default="Level" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="level" type="number" value="${adminInstance.level}" required=""/>
+	<g:field name="level" type="number" min="1" max="5" value="${adminInstance.level}" required=""/>
 
 </div>
 

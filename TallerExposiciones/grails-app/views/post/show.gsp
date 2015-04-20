@@ -59,6 +59,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${postInstance?.forum}">
+				<li class="fieldcontain">
+					<span id="forum-label" class="property-label"><g:message code="post.forum.label" default="Forum" /></span>
+					
+						<span class="property-value" aria-labelledby="forum-label"><g:link controller="forum" action="show" id="${postInstance?.forum?.id}">${postInstance?.forum?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form url="[resource:postInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

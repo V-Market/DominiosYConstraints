@@ -2,6 +2,7 @@ package tallerexposiciones
 
 class Post {
 
+    static belongsTo = [forum: Forum]
     String topic
     Date dateCreated
     Date lastUpdated
