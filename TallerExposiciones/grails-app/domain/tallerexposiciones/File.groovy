@@ -3,7 +3,7 @@ package tallerexposiciones
 class File {
 
     String fileType
-    Byte[] content
+    byte[] content
     double size
     static belongsTo = [post: Post]
     static constraints = {
