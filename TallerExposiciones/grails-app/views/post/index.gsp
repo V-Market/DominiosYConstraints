@@ -26,11 +26,13 @@
 					
 						<g:sortableColumn property="topic" title="${message(code: 'post.topic.label', default: 'Topic')}" />
 					
+						<g:sortableColumn property="itsAllowed" title="${message(code: 'post.itsAllowed.label', default: 'Its Allowed')}" />
+					
+						<th><g:message code="post.author.label" default="Author" /></th>
+					
 						<g:sortableColumn property="dateCreated" title="${message(code: 'post.dateCreated.label', default: 'Date Created')}" />
 					
 						<g:sortableColumn property="lastUpdated" title="${message(code: 'post.lastUpdated.label', default: 'Last Updated')}" />
-					
-						<g:sortableColumn property="itsAllowed" title="${message(code: 'post.itsAllowed.label', default: 'Its Allowed')}" />
 					
 					</tr>
 				</thead>
@@ -40,11 +42,13 @@
 					
 						<td><g:link action="show" id="${postInstance.id}">${fieldValue(bean: postInstance, field: "topic")}</g:link></td>
 					
+						<td><g:formatBoolean boolean="${postInstance.itsAllowed}" /></td>
+					
+						<td>${fieldValue(bean: postInstance, field: "author")}</td>
+					
 						<td><g:formatDate date="${postInstance.dateCreated}" /></td>
 					
 						<td><g:formatDate date="${postInstance.lastUpdated}" /></td>
-					
-						<td><g:formatBoolean boolean="${postInstance.itsAllowed}" /></td>
 					
 					</tr>
 				</g:each>

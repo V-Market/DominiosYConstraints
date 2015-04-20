@@ -32,6 +32,24 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${postInstance?.itsAllowed}">
+				<li class="fieldcontain">
+					<span id="itsAllowed-label" class="property-label"><g:message code="post.itsAllowed.label" default="Its Allowed" /></span>
+					
+						<span class="property-value" aria-labelledby="itsAllowed-label"><g:formatBoolean boolean="${postInstance?.itsAllowed}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${postInstance?.author}">
+				<li class="fieldcontain">
+					<span id="author-label" class="property-label"><g:message code="post.author.label" default="Author" /></span>
+					
+						<span class="property-value" aria-labelledby="author-label"><g:link controller="regular" action="show" id="${postInstance?.author?.id}">${postInstance?.author?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${postInstance?.dateCreated}">
 				<li class="fieldcontain">
 					<span id="dateCreated-label" class="property-label"><g:message code="post.dateCreated.label" default="Date Created" /></span>
@@ -46,15 +64,6 @@
 					<span id="lastUpdated-label" class="property-label"><g:message code="post.lastUpdated.label" default="Last Updated" /></span>
 					
 						<span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${postInstance?.lastUpdated}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${postInstance?.itsAllowed}">
-				<li class="fieldcontain">
-					<span id="itsAllowed-label" class="property-label"><g:message code="post.itsAllowed.label" default="Its Allowed" /></span>
-					
-						<span class="property-value" aria-labelledby="itsAllowed-label"><g:formatBoolean boolean="${postInstance?.itsAllowed}" /></span>
 					
 				</li>
 				</g:if>

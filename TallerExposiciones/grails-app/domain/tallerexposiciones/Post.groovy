@@ -6,6 +6,8 @@ class Post {
     Date dateCreated
     Date lastUpdated
     boolean itsAllowed
+   // Regular author
+    static belongsTo = [author: Regular ]
 
     static constraints = {
         topic(blank:false, validator: { value, object->
@@ -13,8 +15,8 @@ class Post {
             if(myString.count {it == it}>=3 && myString.count{it == it} <=50 ) return true;
             return false;
         })
-        dateCreated(blank:false, min: new Date()+1)
-        lastUpdated(blank:false, min: new Date()+1)
+        //dateCreated(blank:false, min: new Date()+1)
+        //lastUpdated(blank:false, min: new Date()+1)
         itsAllowed(blank:false)
 
     }
