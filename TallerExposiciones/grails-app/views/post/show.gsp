@@ -23,6 +23,17 @@
 			</g:if>
 			<ol class="property-list post">
 			
+				<g:if test="${postInstance?.files}">
+				<li class="fieldcontain">
+					<span id="files-label" class="property-label"><g:message code="post.files.label" default="Files" /></span>
+					
+						<g:each in="${postInstance.files}" var="f">
+						<span class="property-value" aria-labelledby="files-label"><g:link controller="file" action="show" id="${f.id}">${f?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${postInstance?.topic}">
 				<li class="fieldcontain">
 					<span id="topic-label" class="property-label"><g:message code="post.topic.label" default="Topic" /></span>

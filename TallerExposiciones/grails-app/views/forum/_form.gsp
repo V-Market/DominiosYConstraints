@@ -7,7 +7,7 @@
 		<g:message code="forum.name.label" default="Name" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="name" maxlength="20" required="" value="${forumInstance?.name}"/>
+	<g:textField name="name" required="" value="${forumInstance?.name}"/>
 
 </div>
 
@@ -16,7 +16,7 @@
 		<g:message code="forum.category.label" default="Category" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="category" maxlength="15" required="" value="${forumInstance?.category}"/>
+	<g:textField name="category" required="" value="${forumInstance?.category}"/>
 
 </div>
 

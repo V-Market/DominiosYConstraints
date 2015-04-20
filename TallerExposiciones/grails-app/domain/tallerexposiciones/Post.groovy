@@ -1,3 +1,4 @@
+
 package tallerexposiciones
 
 class Post {
@@ -6,10 +7,11 @@ class Post {
     Date dateCreated
     Date lastUpdated
     boolean itsAllowed
-   // Regular author
+    // Regular author
     static belongsTo = [author: Regular ]
-
+    static hasMany = [files: File]
     static constraints = {
+        files blank:true
         topic(blank:false, validator: { value, object->
             def myString = value.split("")
             if(myString.count {it == it}>=3 && myString.count{it == it} <=50 ) return true;
