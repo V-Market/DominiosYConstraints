@@ -7,7 +7,7 @@
 		<g:message code="regular.name.label" default="Name" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="name" maxlength="50" required="" value="${regularInstance?.name}"/>
+	<g:textField name="name" required="" value="${regularInstance?.name}"/>
 
 </div>
 
@@ -16,7 +16,7 @@
 		<g:message code="regular.lastname.label" default="Lastname" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="lastname" maxlength="50" required="" value="${regularInstance?.lastname}"/>
+	<g:textField name="lastname" required="" value="${regularInstance?.lastname}"/>
 
 </div>
 
@@ -71,6 +71,24 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field name="starsNumber" type="number" min="0" max="5" value="${regularInstance.starsNumber}" required=""/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: regularInstance, field: 'posts', 'error')} ">
+	<label for="posts">
+		<g:message code="regular.posts.label" default="Posts" />
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${regularInstance?.posts?}" var="p">
+    <li><g:link controller="post" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="post" action="create" params="['regular.id': regularInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'post.label', default: 'Post')])}</g:link>
+</li>
+</ul>
+
 
 </div>
 

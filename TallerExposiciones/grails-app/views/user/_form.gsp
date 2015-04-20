@@ -7,7 +7,7 @@
 		<g:message code="user.name.label" default="Name" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="name" maxlength="50" required="" value="${userInstance?.name}"/>
+	<g:textField name="name" required="" value="${userInstance?.name}"/>
 
 </div>
 
@@ -16,7 +16,7 @@
 		<g:message code="user.lastname.label" default="Lastname" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="lastname" maxlength="50" required="" value="${userInstance?.lastname}"/>
+	<g:textField name="lastname" required="" value="${userInstance?.lastname}"/>
 
 </div>
 
