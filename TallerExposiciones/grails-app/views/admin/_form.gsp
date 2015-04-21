@@ -47,24 +47,6 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: adminInstance, field: 'forums', 'error')} ">
-	<label for="forums">
-		<g:message code="admin.forums.label" default="Forums" />
-		
-	</label>
-	
-<ul class="one-to-many">
-<g:each in="${adminInstance?.forums?}" var="f">
-    <li><g:link controller="forum" action="show" id="${f.id}">${f?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="forum" action="create" params="['admin.id': adminInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'forum.label', default: 'Forum')])}</g:link>
-</li>
-</ul>
-
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: adminInstance, field: 'level', 'error')} required">
 	<label for="level">
 		<g:message code="admin.level.label" default="Level" />

@@ -1,6 +1,7 @@
 package tallerexposiciones
 
 
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -11,7 +12,7 @@ class ForumController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Forum.list(params), model: [forumInstanceCount: Forum.count()]
+        respond Forum.list(params), model:[forumInstanceCount: Forum.count()]
     }
 
     def show(Forum forumInstance) {
@@ -30,11 +31,11 @@ class ForumController {
         }
 
         if (forumInstance.hasErrors()) {
-            respond forumInstance.errors, view: 'create'
+            respond forumInstance.errors, view:'create'
             return
         }
 
-        forumInstance.save flush: true
+        forumInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
@@ -57,18 +58,18 @@ class ForumController {
         }
 
         if (forumInstance.hasErrors()) {
-            respond forumInstance.errors, view: 'edit'
+            respond forumInstance.errors, view:'edit'
             return
         }
 
-        forumInstance.save flush: true
+        forumInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Forum.label', default: 'Forum'), forumInstance.id])
                 redirect forumInstance
             }
-            '*' { respond forumInstance, [status: OK] }
+            '*'{ respond forumInstance, [status: OK] }
         }
     }
 
@@ -80,14 +81,14 @@ class ForumController {
             return
         }
 
-        forumInstance.delete flush: true
+        forumInstance.delete flush:true
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Forum.label', default: 'Forum'), forumInstance.id])
-                redirect action: "index", method: "GET"
+                redirect action:"index", method:"GET"
             }
-            '*' { render status: NO_CONTENT }
+            '*'{ render status: NO_CONTENT }
         }
     }
 
@@ -97,7 +98,7 @@ class ForumController {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'forum.label', default: 'Forum'), params.id])
                 redirect action: "index", method: "GET"
             }
-            '*' { render status: NOT_FOUND }
+            '*'{ render status: NOT_FOUND }
         }
     }
 }

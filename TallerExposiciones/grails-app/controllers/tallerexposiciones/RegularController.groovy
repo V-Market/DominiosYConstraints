@@ -1,6 +1,7 @@
 package tallerexposiciones
 
 
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -11,7 +12,7 @@ class RegularController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Regular.list(params), model: [regularInstanceCount: Regular.count()]
+        respond Regular.list(params), model:[regularInstanceCount: Regular.count()]
     }
 
     def show(Regular regularInstance) {
@@ -30,11 +31,11 @@ class RegularController {
         }
 
         if (regularInstance.hasErrors()) {
-            respond regularInstance.errors, view: 'create'
+            respond regularInstance.errors, view:'create'
             return
         }
 
-        regularInstance.save flush: true
+        regularInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
@@ -57,18 +58,18 @@ class RegularController {
         }
 
         if (regularInstance.hasErrors()) {
-            respond regularInstance.errors, view: 'edit'
+            respond regularInstance.errors, view:'edit'
             return
         }
 
-        regularInstance.save flush: true
+        regularInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Regular.label', default: 'Regular'), regularInstance.id])
                 redirect regularInstance
             }
-            '*' { respond regularInstance, [status: OK] }
+            '*'{ respond regularInstance, [status: OK] }
         }
     }
 
@@ -80,14 +81,14 @@ class RegularController {
             return
         }
 
-        regularInstance.delete flush: true
+        regularInstance.delete flush:true
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Regular.label', default: 'Regular'), regularInstance.id])
-                redirect action: "index", method: "GET"
+                redirect action:"index", method:"GET"
             }
-            '*' { render status: NO_CONTENT }
+            '*'{ render status: NO_CONTENT }
         }
     }
 
@@ -97,7 +98,7 @@ class RegularController {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'regular.label', default: 'Regular'), params.id])
                 redirect action: "index", method: "GET"
             }
-            '*' { render status: NOT_FOUND }
+            '*'{ render status: NOT_FOUND }
         }
     }
 }

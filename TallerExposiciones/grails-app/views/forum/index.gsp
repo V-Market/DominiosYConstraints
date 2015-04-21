@@ -30,8 +30,6 @@
 					
 						<g:sortableColumn property="category" title="${message(code: 'forum.category.label', default: 'Category')}" />
 					
-						<th><g:message code="forum.admin.label" default="Admin" /></th>
-					
 					</tr>
 				</thead>
 				<tbody>
@@ -43,8 +41,6 @@
 						<td><g:formatDate date="${forumInstance.dateCreated}" /></td>
 					
 						<td>${fieldValue(bean: forumInstance, field: "category")}</td>
-					
-						<td>${fieldValue(bean: forumInstance, field: "admin")}</td>
 					
 					</tr>
 				</g:each>

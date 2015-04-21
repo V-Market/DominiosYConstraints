@@ -102,5 +102,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module" module-name="TallerExposiciones-grailsPlugins" />
+    <orderEntry type="library" name="grails-2.4.4" level="application" />
   </component>
 </module>

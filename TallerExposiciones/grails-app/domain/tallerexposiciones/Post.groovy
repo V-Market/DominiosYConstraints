@@ -3,12 +3,10 @@ package tallerexposiciones
 
 class Post {
 
-    static belongsTo = [forum: Forum]
     String topic
     Date dateCreated
     Date lastUpdated
     boolean itsAllowed
-    // Regular author
     static belongsTo = [author: Regular ]
     static hasMany = [files: File]
     static constraints = {
