@@ -48,15 +48,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${fileInstance?.post}">
-				<li class="fieldcontain">
-					<span id="post-label" class="property-label"><g:message code="file.post.label" default="Post" /></span>
-					
-						<span class="property-value" aria-labelledby="post-label"><g:link controller="post" action="show" id="${fileInstance?.post?.id}">${fileInstance?.post?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
 			</ol>
 			<g:form url="[resource:fileInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

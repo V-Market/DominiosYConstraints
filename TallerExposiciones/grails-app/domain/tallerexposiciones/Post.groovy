@@ -7,17 +7,17 @@ class Post {
     Date dateCreated
     Date lastUpdated
     boolean itsAllowed
-    static belongsTo = [author: Regular ]
-    static hasMany = [files: File]
+    //static belongsTo = [author: Regular ]
+    //static hasMany = [files: File]
     static constraints = {
-        files blank:true
+        //files blank:true
         topic(blank:false, validator: { value, object->
             def myString = value.split("")
             if(myString.count {it == it}>=3 && myString.count{it == it} <=50 ) return true;
             return false;
         })
-        //dateCreated(blank:false, min: new Date()+1)
-        //lastUpdated(blank:false, min: new Date()+1)
+        dateCreated(blank:false, min: new Date()+1)
+        lastUpdated(blank:false, min: new Date()+1)
         itsAllowed(blank:false)
 
     }

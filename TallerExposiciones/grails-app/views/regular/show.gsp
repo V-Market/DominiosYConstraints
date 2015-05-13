@@ -95,17 +95,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${regularInstance?.posts}">
-				<li class="fieldcontain">
-					<span id="posts-label" class="property-label"><g:message code="regular.posts.label" default="Posts" /></span>
-					
-						<g:each in="${regularInstance.posts}" var="p">
-						<span class="property-value" aria-labelledby="posts-label"><g:link controller="post" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
 			</ol>
 			<g:form url="[resource:regularInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

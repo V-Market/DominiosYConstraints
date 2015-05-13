@@ -5,7 +5,7 @@ class File {
     String fileType
     byte[] content
     double size
-    static belongsTo = [post: Post]
+    //static belongsTo = [post: Post]
     static constraints = {
         fileType(blank: false, matches: "[a-zA-Z]+"+"/"+"[a-zA-Z]+")
         content(blank:false,nullable: false)

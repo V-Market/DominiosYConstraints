@@ -61,11 +61,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="grails-2.4.4 (2)" level="application" />
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
       <library name="Grails User Library (TallerExposiciones)">
         <CLASSES>
-          <root url="file://$MODULE_DIR$/lib" />
           <root url="jar://$MAVEN_REPOSITORY$/org/javassist/javassist/3.17.1-GA/javassist-3.17.1-GA.jar!/" />
           <root url="jar://$MAVEN_REPOSITORY$/org/liquibase/liquibase-core/2.0.5/liquibase-core-2.0.5.jar!/" />
           <root url="jar://$MAVEN_REPOSITORY$/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar!/" />
@@ -95,6 +93,7 @@
           <root url="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-el/7.0.55/tomcat-embed-el-7.0.55.jar!/" />
           <root url="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-jasper/7.0.55/tomcat-embed-jasper-7.0.55.jar!/" />
           <root url="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/tomcat-catalina-ant/7.0.55/tomcat-catalina-ant-7.0.55.jar!/" />
+          <root url="file://$MODULE_DIR$/lib" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -102,6 +101,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module" module-name="TallerExposiciones-grailsPlugins" />
-    <orderEntry type="library" name="grails-2.4.4" level="application" />
+    <orderEntry type="library" exported="" name="grails-2.4.4" level="application" />
   </component>
 </module>

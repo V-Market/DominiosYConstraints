@@ -29,12 +29,3 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: fileInstance, field: 'post', 'error')} required">
-	<label for="post">
-		<g:message code="file.post.label" default="Post" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="post" name="post.id" from="${tallerexposiciones.Post.list()}" optionKey="id" required="" value="${fileInstance?.post?.id}" class="many-to-one"/>
-
-</div>
-

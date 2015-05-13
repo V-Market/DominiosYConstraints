@@ -30,8 +30,6 @@
 					
 						<g:sortableColumn property="size" title="${message(code: 'file.size.label', default: 'Size')}" />
 					
-						<th><g:message code="file.post.label" default="Post" /></th>
-					
 					</tr>
 				</thead>
 				<tbody>
@@ -43,8 +41,6 @@
 						<td>${fieldValue(bean: fileInstance, field: "content")}</td>
 					
 						<td>${fieldValue(bean: fileInstance, field: "size")}</td>
-					
-						<td>${fieldValue(bean: fileInstance, field: "post")}</td>
 					
 					</tr>
 				</g:each>

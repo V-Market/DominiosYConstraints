@@ -23,40 +23,11 @@
 			</g:if>
 			<ol class="property-list post">
 			
-				<g:if test="${postInstance?.files}">
-				<li class="fieldcontain">
-					<span id="files-label" class="property-label"><g:message code="post.files.label" default="Files" /></span>
-					
-						<g:each in="${postInstance.files}" var="f">
-						<span class="property-value" aria-labelledby="files-label"><g:link controller="file" action="show" id="${f.id}">${f?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${postInstance?.topic}">
 				<li class="fieldcontain">
 					<span id="topic-label" class="property-label"><g:message code="post.topic.label" default="Topic" /></span>
 					
 						<span class="property-value" aria-labelledby="topic-label"><g:fieldValue bean="${postInstance}" field="topic"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${postInstance?.itsAllowed}">
-				<li class="fieldcontain">
-					<span id="itsAllowed-label" class="property-label"><g:message code="post.itsAllowed.label" default="Its Allowed" /></span>
-					
-						<span class="property-value" aria-labelledby="itsAllowed-label"><g:formatBoolean boolean="${postInstance?.itsAllowed}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${postInstance?.author}">
-				<li class="fieldcontain">
-					<span id="author-label" class="property-label"><g:message code="post.author.label" default="Author" /></span>
-					
-						<span class="property-value" aria-labelledby="author-label"><g:link controller="regular" action="show" id="${postInstance?.author?.id}">${postInstance?.author?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -75,6 +46,15 @@
 					<span id="lastUpdated-label" class="property-label"><g:message code="post.lastUpdated.label" default="Last Updated" /></span>
 					
 						<span class="property-value" aria-labelledby="lastUpdated-label"><g:formatDate date="${postInstance?.lastUpdated}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${postInstance?.itsAllowed}">
+				<li class="fieldcontain">
+					<span id="itsAllowed-label" class="property-label"><g:message code="post.itsAllowed.label" default="Its Allowed" /></span>
+					
+						<span class="property-value" aria-labelledby="itsAllowed-label"><g:formatBoolean boolean="${postInstance?.itsAllowed}" /></span>
 					
 				</li>
 				</g:if>
