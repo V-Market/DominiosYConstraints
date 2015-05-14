@@ -8,6 +8,15 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class ForumController {
 
+    def beforeInterceptor = {
+        println "Se ha ejecutado la Acción: "+getActionName()
+        session.setAttribute("authStatus","logged")
+    }
+    def afterInterceptor = {
+        println "Se va a ejecutar la Acción: "+getActionName()
+    }
+
+
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
