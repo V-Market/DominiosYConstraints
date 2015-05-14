@@ -24,6 +24,8 @@
 			<thead>
 					<tr>
 					
+						<th><g:message code="forum.admin.label" default="Admin" /></th>
+					
 						<g:sortableColumn property="name" title="${message(code: 'forum.name.label', default: 'Name')}" />
 					
 						<g:sortableColumn property="dateCreated" title="${message(code: 'forum.dateCreated.label', default: 'Date Created')}" />
@@ -36,7 +38,9 @@
 				<g:each in="${forumInstanceList}" status="i" var="forumInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${forumInstance.id}">${fieldValue(bean: forumInstance, field: "name")}</g:link></td>
+						<td><g:link action="show" id="${forumInstance.id}">${fieldValue(bean: forumInstance, field: "admin")}</g:link></td>
+					
+						<td>${fieldValue(bean: forumInstance, field: "name")}</td>
 					
 						<td><g:formatDate date="${forumInstance.dateCreated}" /></td>
 					

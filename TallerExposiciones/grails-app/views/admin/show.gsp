@@ -68,6 +68,17 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${adminInstance?.forums}">
+				<li class="fieldcontain">
+					<span id="forums-label" class="property-label"><g:message code="admin.forums.label" default="Forums" /></span>
+					
+						<g:each in="${adminInstance.forums}" var="f">
+						<span class="property-value" aria-labelledby="forums-label"><g:link controller="forum" action="show" id="${f.id}">${f?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${adminInstance?.level}">
 				<li class="fieldcontain">
 					<span id="level-label" class="property-label"><g:message code="admin.level.label" default="Level" /></span>

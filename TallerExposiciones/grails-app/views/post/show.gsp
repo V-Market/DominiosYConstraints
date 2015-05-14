@@ -23,6 +23,35 @@
 			</g:if>
 			<ol class="property-list post">
 			
+				<g:if test="${postInstance?.files}">
+				<li class="fieldcontain">
+					<span id="files-label" class="property-label"><g:message code="post.files.label" default="Files" /></span>
+					
+						<g:each in="${postInstance.files}" var="f">
+						<span class="property-value" aria-labelledby="files-label"><g:link controller="file" action="show" id="${f.id}">${f?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${postInstance?.forum}">
+				<li class="fieldcontain">
+					<span id="forum-label" class="property-label"><g:message code="post.forum.label" default="Forum" /></span>
+					
+						<span class="property-value" aria-labelledby="forum-label"><g:link controller="forum" action="show" id="${postInstance?.forum?.id}">${postInstance?.forum?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${postInstance?.author}">
+				<li class="fieldcontain">
+					<span id="author-label" class="property-label"><g:message code="post.author.label" default="Author" /></span>
+					
+						<span class="property-value" aria-labelledby="author-label"><g:link controller="regular" action="show" id="${postInstance?.author?.id}">${postInstance?.author?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${postInstance?.topic}">
 				<li class="fieldcontain">
 					<span id="topic-label" class="property-label"><g:message code="post.topic.label" default="Topic" /></span>
