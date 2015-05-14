@@ -41,6 +41,8 @@ class ForumController {
 
         if (forumInstance.hasErrors()) {
             respond forumInstance.errors, view:'create'
+            println("\nERRORES EN FORUM : ")
+            println(forumInstance.errors)
             return
         }
 
@@ -68,6 +70,8 @@ class ForumController {
 
         if (forumInstance.hasErrors()) {
             respond forumInstance.errors, view:'edit'
+            println("\nERRORES EN FORUM : ")
+            println(forumInstance.errors)
             return
         }
 

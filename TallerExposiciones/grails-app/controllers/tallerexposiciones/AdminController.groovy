@@ -40,6 +40,8 @@ class AdminController {
 
         if (adminInstance.hasErrors()) {
             respond adminInstance.errors, view:'create'
+            println("\nERRORES EN ADMIN : ")
+            println(adminInstance.errors)
             return
         }
 
@@ -67,6 +69,8 @@ class AdminController {
 
         if (adminInstance.hasErrors()) {
             respond adminInstance.errors, view:'edit'
+            println("\nERRORES EN ADMIN : ")
+            println(adminInstance.errors)
             return
         }
 

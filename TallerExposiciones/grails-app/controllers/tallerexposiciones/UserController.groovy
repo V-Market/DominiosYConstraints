@@ -10,6 +10,14 @@ class UserController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def beforeInterceptor = {
+        println " - Se va a ejecutar la accion: ${actionName}"
+        session.setAttribute("authStatus","logged")
+    }
+    def afterInterceptor = {
+        println " - Se ha ejecutado la accion: ${actionName}"
+    }
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond User.list(params), model:[userInstanceCount: User.count()]
@@ -32,6 +40,8 @@ class UserController {
 
         if (userInstance.hasErrors()) {
             respond userInstance.errors, view:'create'
+            println("\nERRORES EN USER : ")
+            println(userInstance.errors)
             return
         }
 
@@ -59,6 +69,8 @@ class UserController {
 
         if (userInstance.hasErrors()) {
             respond userInstance.errors, view:'edit'
+            println("\nERRORES EN USER : ")
+            println(userInstance.errors)
             return
         }
 

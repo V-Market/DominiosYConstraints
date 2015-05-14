@@ -40,6 +40,8 @@ class FileController {
 
         if (fileInstance.hasErrors()) {
             respond fileInstance.errors, view:'create'
+            println("\nERRORES EN FILE : ")
+            println(fileInstance.errors)
             return
         }
 
@@ -67,6 +69,8 @@ class FileController {
 
         if (fileInstance.hasErrors()) {
             respond fileInstance.errors, view:'edit'
+            println("\nERRORES EN FILE : ")
+            println(fileInstance.errors)
             return
         }
 
