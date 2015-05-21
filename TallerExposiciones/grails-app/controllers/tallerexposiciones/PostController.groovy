@@ -110,7 +110,7 @@ class PostController {
 
     def rate(){
         def post = Post.findByAuthorAndTopicAndDateCreated(params.author, params.topic, params.dateCreated)
-        post.rate = post.rate + 1 params.
+        post.rate = post.rate + 1
         redirect(action: edit(post))
     }
 
