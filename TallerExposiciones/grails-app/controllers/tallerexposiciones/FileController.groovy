@@ -9,11 +9,11 @@ import grails.transaction.Transactional
 class FileController {
 
     def beforeInterceptor = {
-        println "Se ha ejecutado la Acción: "+getActionName()
+        println "Se va a ejecutar la Acción: "+getActionName()
         session.setAttribute("authStatus","logged")
     }
     def afterInterceptor = {
-        println "Se va a ejecutar la Acción: "+getActionName()
+        println "Se ha ejecutado la Acción: "+getActionName()
     }
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]

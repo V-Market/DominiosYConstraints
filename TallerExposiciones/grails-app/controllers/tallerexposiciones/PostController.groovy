@@ -9,6 +9,14 @@ class PostController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def beforeInterceptor = {
+        println "Se va a ejecutar la Acción: "+getActionName()
+        session.setAttribute("authStatus","logged")
+    }
+    def afterInterceptor = {
+        println "Se ha ejecutado la Acción: "+getActionName()
+    }
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Post.list(params), model: [postInstanceCount: Post.count()]
