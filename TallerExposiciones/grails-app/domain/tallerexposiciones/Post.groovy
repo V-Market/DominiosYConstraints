@@ -6,6 +6,8 @@ class Post {
     String topic
     Date dateCreated = new Date();
     Date lastUpdated;
+    def comments
+    int rate
     boolean itsAllowed
     static belongsTo = [author: Regular , forum: Forum]
     static hasMany = [files: File]
@@ -21,7 +23,7 @@ class Post {
         dateCreated(blank:false, min: new Date()+1)
         lastUpdated(blank:false, min: new Date()+1)
         itsAllowed(blank:false)
-
+        rate(min: 0)
     }
 
     static mapping = {
@@ -30,7 +32,7 @@ class Post {
 
     }
 
-    public void comment(){
+/*    public void comment(){
 
     }
 
@@ -40,5 +42,5 @@ class Post {
 
     public void share(){
 
-    }
+    } */
 }
