@@ -45,6 +45,11 @@ class FileController {
             return
         }
 
+        if (!(params.fileType == "text/plain" || "image/png" == params.fileType)){
+            println ("El tipo de archivo no cumple con los requerimientos")
+            return
+        }
+
         fileInstance.save flush:true
 
         request.withFormat {
@@ -102,6 +107,15 @@ class FileController {
             }
             '*'{ render status: NO_CONTENT }
         }
+    }
+
+    def download(){
+        def file  = File.get(params.actualFile)
+        respond file.content,[formats:['png','txt']]
+        return file
+    }
+    def share(){
+        render "The function hasn't been implemented yet"
     }
 
     protected void notFound() {
