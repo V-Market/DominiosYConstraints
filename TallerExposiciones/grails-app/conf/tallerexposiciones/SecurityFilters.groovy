@@ -10,7 +10,6 @@ class SecurityFilters {
                     redirect(controller: 'admin',action: 'index')
                     return
                 }
-
             }
             after = { Map model ->
 
