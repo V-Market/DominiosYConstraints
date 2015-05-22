@@ -111,6 +111,10 @@ class PostController {
         }
     }
 
+    def postsUser(id){
+
+    }
+
     def share(){
         println("si entra")
         render "No se ha implementado esta funcionalidad"

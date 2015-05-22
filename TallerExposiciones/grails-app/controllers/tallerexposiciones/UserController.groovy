@@ -23,9 +23,6 @@ class UserController {
         respond User.list(params), model:[userInstanceCount: User.count()]
     }
 
-    def indexUA(){
-
-    }
 
     def show(User userInstance) {
         respond userInstance
@@ -116,5 +113,35 @@ class UserController {
             }
             '*'{ render status: NOT_FOUND }
         }
+    }
+
+    def login(){}
+    def authUserIndex(){}
+
+    def doLogin(){
+        if(request.method=="POST") {
+            def user = User.findByUsernameAndPassword(params.username,params.password)
+            println user
+            if (user) {
+                session.setAttribute("authStatus","logged")
+                session.user = user
+                flash.message = "Hello, ${params.username}."
+                params.flashMessage = flash.message
+            } else {
+                session.setAttribute("authStatus","loggedOut")
+                flash.message = "Sorry, ${params.username}. Please try again"
+                params.flashMessage = flash.message
+            }
+            redirect(uri:'/')
+        }
+    }
+
+    def logOut(){
+        println "Logged out"
+        session.setAttribute("authStatus","loggedOut")
+        session.user = null
+        flash.message = "Has cerrado sesion."
+        params.flashMessage = flash.message
+        redirect(uri:'/')
     }
 }

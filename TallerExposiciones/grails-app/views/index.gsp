@@ -26,16 +26,41 @@
         <!-- Esta es la fila que cambia -->
         <nav class="navbar navbar-default">
             <div class="container modificacionContainer">
-                <div>
-                    <!-- Este es el pedazo que cambia de la barra de navegacion -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="<g:createLink controller='user' action='login'/>" class="login">        Login       </a></li>
-                    </ul>
-                </div>
+                <g:if test="${session.user}">
+                    <div>
+                        <ul class="nav navbar-nav">
+                            <li><a href="/">Bienvenido ${session.user.username}</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <!-- Este es el pedazo que cambia de la barra de navegacion -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><g:link controller="user" action="show" id="${session.user.id}">Mi perfil</g:link></li>
+                            <li><a href="#">Mis posts</a></li>
+                            <li><g:link controller="user" action="logOut">Logout</g:link></li>
+                        </ul>
+                    </div>
+                </g:if>
+                <g:else>
+                    <div>
+                        <!-- Este es el pedazo que cambia de la barra de navegacion -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="<g:createLink controller='user' action='login'/>" class="login">Login</a></li>
+                        </ul>
+                    </div>
+                </g:else>
             </div>
         </nav>
 
         <!-- Esta es la fila que cambia -->
+        <g:if test="${flash.message}">
+            <div class="row">
+                <div class="text-center">
+                    <h2>${flash.message}</h2>
+                </div>
+                <br/>
+            </div>
+        </g:if>
         <div class="row">
             <div class="col-sm-6">
                 <div class="text-center" style="border: 2px solid black">
