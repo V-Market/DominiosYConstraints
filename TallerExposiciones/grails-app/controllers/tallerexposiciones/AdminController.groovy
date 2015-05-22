@@ -113,4 +113,8 @@ class AdminController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+    def showPerfil(){
+
+    }
 }
