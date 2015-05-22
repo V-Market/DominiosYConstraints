@@ -5,3 +5,41 @@
     -o-background-size: cover;
     background-size: cover;
 }
+
+.login{
+  height: inherit;
+  background-color: #e0e0e0;
+    border-color: #080808;
+    border-width: thin;
+    color:#000000;
+    text-align: left;
+
+}
+
+.modificacionContainer{
+    margin-right: 0;
+}
+
+.align-leftC{
+    margin-left: 70px;
+    text-align: left;
+}
+
+.align-left{
+    margin-left: 50px;
+    text-align: left;
+}
+
+.rectbox{
+    margin: 30px;
+    margin-top: 15px;
+    width: 250px;
+    height: 155px;
+    background-color: #e0e0e0;
+    overflow: auto;
+}
+
+.padding{
+    width:inherit;
+    height: 30px;
+}
