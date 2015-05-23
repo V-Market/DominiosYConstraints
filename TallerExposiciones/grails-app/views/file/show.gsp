@@ -23,7 +23,7 @@
     <div class="row">
         <div class="col-sm-12">
             <br/>
-            <img src="../images/post.jpg" class="img-responsive" alt="Responsive image">
+            <img src="${resource(dir:'images', file:'post.jpg')}" class="img-responsive" alt="Responsive image">
             <br/>
         </div>
     </div>
