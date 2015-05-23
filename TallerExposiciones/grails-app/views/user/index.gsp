@@ -79,7 +79,9 @@
                     <br/>
                     <ul class="align-left">
                         <li><a href="<g:createLink controller='forum' action='index'/>">Foros</a></li>
-                        <li><a href="<g:createLink controller='user' action='index'/>" >Usuarios</a></li>
+                        <!--li><a href="<g:createLink controller='user' action='indexGrails'/>" >Usuarios</a></li-->
+                        <li><a href="<g:createLink controller='regular' action='index'/>" >Usuarios (regular)</a></li>
+                        <li><a href="<g:createLink controller='admin' action='index'/>" >Usuarios (admin)</a></li>
                         <li><a href="<g:createLink controller='post' action='index'/>" >Entradas</a></li>
                         <li><a href="<g:createLink controller='file' action='index'/>" >Archivos</a></li>
                     </ul>
