@@ -124,15 +124,20 @@ class PostController {
         render "No se ha implementado esta funcionalidad"
     }
 
-    def rate(){
-        def post = Post.findByAuthorAndTopicAndDateCreated(params.author, params.topic, params.dateCreated)
-        post.rate = post.rate + 1
-        redirect(action: edit(post))
+    def rate(Post postInstance){
+        postInstance.rate = postInstance.rate + 1
+        println(postInstance.rate+" forum: " + postInstance.forum.name + " " + postInstance.forum.category + " author"
+                + postInstance.author.name + " "+postInstance.author.lastname)
+        update(postInstance)
     }
 
-    def comment(){
-        def post = Post.findByAuthorAndTopicAndDateCreated(params.author, params.topic, params.dateCreated)
-        post.comments.add(params.commentContent)
-        redirect(action: edit(post))
+    def comment(Post postInstance){
+        println(params.commentContent)
+        println(postInstance.rate+" forum: " + postInstance.forum.name + " " + postInstance.forum.category + " author"
+                + postInstance.author.name + " "+postInstance.author.lastname)
+        if(postInstance.comments.equals(null))
+            postInstance.comments = []
+        postInstance.comments.add(params.commentContent)
+        update(postInstance)
     }
 }

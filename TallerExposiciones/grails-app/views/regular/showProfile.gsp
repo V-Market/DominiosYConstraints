@@ -38,7 +38,7 @@
         <div class="container">
             <div>
                 <ul class="nav navbar-nav">
-                    <li><a href="/">Bienvenido </a></li>
+                    <li><a href="/">Bienvenido  ${session.user.username} </a></li>
                 </ul>
             </div>
             <div>
