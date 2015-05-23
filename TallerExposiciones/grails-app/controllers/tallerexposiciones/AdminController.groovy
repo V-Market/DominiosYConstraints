@@ -115,6 +115,6 @@ class AdminController {
     }
 
     def showProfile(){
-
+        []
     }
 }
