@@ -114,7 +114,7 @@ class RegularController {
         }
     }
 
-    def showPerfil(){
+    def showProfile(){
 
     }
 }

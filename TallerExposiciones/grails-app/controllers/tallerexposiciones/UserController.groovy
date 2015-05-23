@@ -29,61 +29,6 @@ class UserController {
     }
 
     def create() {
-        respond new User(params)
-    }
-
-    @Transactional
-    def save(User userInstance) {
-        if (userInstance == null) {
-            notFound()
-            return
-        }
-
-        if (userInstance.hasErrors()) {
-            respond userInstance.errors, view:'create'
-            println("\nERRORES EN USER : ")
-            println(userInstance.errors)
-            return
-        }
-
-        userInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
-                redirect userInstance
-            }
-            '*' { respond userInstance, [status: CREATED] }
-        }
-    }
-
-    def edit(User userInstance) {
-        respond userInstance
-    }
-
-    @Transactional
-    def update(User userInstance) {
-        if (userInstance == null) {
-            notFound()
-            return
-        }
-
-        if (userInstance.hasErrors()) {
-            respond userInstance.errors, view:'edit'
-            println("\nERRORES EN USER : ")
-            println(userInstance.errors)
-            return
-        }
-
-        userInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'User.label', default: 'User'), userInstance.id])
-                redirect userInstance
-            }
-            '*'{ respond userInstance, [status: OK] }
-        }
     }
 
     @Transactional
@@ -105,6 +50,7 @@ class UserController {
         }
     }
 
+
     protected void notFound() {
         request.withFormat {
             form multipartForm {
@@ -121,7 +67,6 @@ class UserController {
     def doLogin(){
         if(request.method=="POST") {
             def user = User.findByUsernameAndPassword(params.username,params.password)
-            println user
             if (user) {
                 session.setAttribute("authStatus","logged")
                 session.user = user

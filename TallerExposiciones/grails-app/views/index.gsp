@@ -1,3 +1,4 @@
+<%@ page import="tallerexposiciones.Regular" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -35,8 +36,14 @@
                     <div>
                         <!-- Este es el pedazo que cambia de la barra de navegacion -->
                         <ul class="nav navbar-nav navbar-right">
-                            <li><g:link controller="user" action="show" id="${session.user.id}">Mi perfil</g:link></li>
-                            <li><a href="#">Mis posts</a></li>
+                            <g:if test="${session.user.domainClass == new tallerexposiciones.Regular().domainClass}">
+                                <li><g:link controller="regular" action="showProfile">Mi perfil</g:link></li>
+                                <li><g:link controller="post" action="postsUser">Mis posts</g:link></li>
+                            </g:if>
+                            <g:else>
+                                <li><g:link controller="admin" action="showProfile">Mi perfil</g:link></li>
+                                <li><g:link controller="forum" action="forumsUser">Mis foros</g:link></li>
+                            </g:else>
                             <li><g:link controller="user" action="logOut">Logout</g:link></li>
                         </ul>
                     </div>

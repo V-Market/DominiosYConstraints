@@ -51,7 +51,7 @@ class SecurityFilters {
             }
         }
 
-        check(controller: 'user', action: 'delete|edit|show|update') {
+        check(controller: 'user', action: 'create|delete|edit|save|show|update') {
             before = {
                 if(!session.getAttribute("authStatus").equals("logged") && !actionName.equals("index")){
                     redirect(controller: 'user',action: "index")

@@ -10,4 +10,8 @@ class Admin extends User{
         level (blank:false, min: 1, max: 5)
         rating (blank:false, min: (double)0, max: (double) 100)
     }
+
+    String toString() {
+        return this.username;
+    }
 }

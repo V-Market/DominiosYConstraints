@@ -20,8 +20,8 @@ class Post {
             if(myString.count {it == it}>=3 && myString.count{it == it} <=50 ) return true;
             return false;
         })
-        dateCreated(blank:false, min: new Date()+1)
-        lastUpdated(blank:false, min: new Date()+1)
+        dateCreated(blank:false, min: new Date())
+        lastUpdated(blank:false, min: new Date())
         itsAllowed(blank:false)
         rate(min: 0)
     }
@@ -32,15 +32,8 @@ class Post {
 
     }
 
-/*    public void comment(){
-
+    String toString() {
+        return this.topic;
     }
 
-    public void rate(){
-
-    }
-
-    public void share(){
-
-    } */
 }

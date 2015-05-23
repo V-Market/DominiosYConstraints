@@ -12,4 +12,8 @@ class Regular extends User{
         strikesNumber(blank:false, min:0, max:3)
         starsNumber(blank:false, min:0, max:5)
     }
+
+    String toString() {
+        return this.username;
+    }
 }

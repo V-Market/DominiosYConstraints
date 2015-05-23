@@ -44,7 +44,7 @@
             <div>
                 <!-- Este es el pedazo que cambia de la barra de navegacion -->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><g:link controller="user" action="show" id="${session.user.id}">Mi perfil</g:link></li>
+                    <li><g:link controller="regular" action="showProfile">Mi perfil</g:link></li>
                     <li><a href="#">Mis posts</a></li>
                     <li><g:link controller="user" action="logOut">Logout</g:link></li>
                 </ul>
@@ -55,7 +55,7 @@
     <!-- Esta es la fila que cambia -->
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-            <table>
+            <table class="table">
                 <thead>
                 <tr>
 
@@ -71,11 +71,16 @@
 
                     <g:sortableColumn property="itsAllowed" title="${message(code: 'post.itsAllowed.label', default: 'Its Allowed')}" />
 
+                    <th>Rate</th>
+
+                    <th>Comment</th>
                 </tr>
                 </thead>
                 <tbody>
-                <g:each in="${postInstanceList}" status="i" var="postInstance">
-                    <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+
+                <g:each in="${params.userPostList}" status="i" var="postInstance">
+
+                    <tr>
 
                         <td><g:link action="show" id="${postInstance.id}">${fieldValue(bean: postInstance, field: "forum")}</g:link></td>
 
@@ -91,15 +96,13 @@
 
                         <td>
                             <g:form controller="post">
-                                <g:actionSubmit value="rate" action="rate" />
+                                <g:actionSubmit value="Rate (+1)" action="rate" class="btn btn-success"/>
                             </g:form>
                         </td>
 
-                        <td><g:field type="text" name="commentContent"/></td>
-
-                        <td>
+                        <td><g:field type="text" name="commentContent" class="form-control"/>
                             <g:form controller="post">
-                                <g:actionSubmit value="comment" action="comment" />
+                                <g:actionSubmit value="Comment" action="comment" class="btn btn-default"/>
                             </g:form>
                         </td>
                     </tr>

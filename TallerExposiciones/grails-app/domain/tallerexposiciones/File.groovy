@@ -16,11 +16,8 @@ class File {
     static mapping = {
         post column: 'post_belongs_id'
     }
-    def download(){
 
-    }
-
-    def share(){
-
+    String toString() {
+        return this.fileType;
     }
 }

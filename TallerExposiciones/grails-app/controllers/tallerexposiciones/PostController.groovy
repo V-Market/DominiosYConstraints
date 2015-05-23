@@ -29,6 +29,7 @@ class PostController {
     def create() {
         Post postN = new Post(params)
         postN.comments = []
+        postN.dateCreated = new Date()+1
         respond postN
     }
 
@@ -71,6 +72,8 @@ class PostController {
             return
         }
 
+        postInstance.lastUpdated = new Date()+1
+
         postInstance.save flush: true
 
         request.withFormat {
@@ -111,8 +114,9 @@ class PostController {
         }
     }
 
-    def postsUser(id){
-
+    def postsUser(){
+        params.userPostList = Post.findByAuthor(session.user)
+        println params.userPostList
     }
 
     def share(){

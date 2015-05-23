@@ -114,7 +114,7 @@ class AdminController {
         }
     }
 
-    def showPerfil(){
+    def showProfile(){
 
     }
 }

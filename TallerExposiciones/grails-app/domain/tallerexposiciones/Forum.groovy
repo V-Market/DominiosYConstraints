@@ -23,5 +23,9 @@ class Forum {
             return false;
         })
     }
+
+    String toString() {
+        return this.name;
+    }
 }
 

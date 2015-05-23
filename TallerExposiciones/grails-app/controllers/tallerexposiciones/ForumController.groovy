@@ -114,4 +114,9 @@ class ForumController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+    def forumsUser(){
+        params.userForumList = Forum.findByAdmin(session.user)
+        println params.userForumList
+    }
 }
