@@ -8,6 +8,7 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class UserController {
 
+    static defaultAction = "indexGrails"
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def beforeInterceptor = {
@@ -18,7 +19,7 @@ class UserController {
         println " - Se ha ejecutado la accion: ${actionName}"
     }
 
-    def index(Integer max) {
+    def indexGrails(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond User.list(params), model:[userInstanceCount: User.count()]
     }
@@ -88,5 +89,35 @@ class UserController {
         flash.message = "Has cerrado sesion."
         params.flashMessage = flash.message
         redirect(uri:'/')
+    }
+
+    def index(){
+
+        def posts = Post.findAll()
+        posts.sort(new Comparator<Post>() {
+            @Override
+            int compare(Post o1, Post o2) {
+                return o1.dateCreated.compareTo(o2.dateCreated)
+            }
+        });
+        def size = posts.size()
+        if(size<=10)
+            params.recentPost = posts.subList(0,size)
+        else
+            params.recentPost = posts.subList(0,10)
+
+        def forums = Forum.findAll()
+        forums.sort(new Comparator<Forum>() {
+            @Override
+            int compare(Forum o1, Forum o2) {
+                return o1.posts.size().compareTo(o2.posts.size())
+            }
+        })
+
+        size = forums.size()
+        if(size<=10)
+            params.popularForums = forums.subList(0,size)
+        else
+            params.popularForums = forums.subList(0,10)
     }
 }
