@@ -53,7 +53,7 @@
       <excludeFolder url="file://$MODULE_DIR$/target/work/scriptCache" />
       <excludeFolder url="file://$MODULE_DIR$/target/work/tomcat" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="1.8 (2)" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
       <library name="Grails User Library (TallerExposiciones)">

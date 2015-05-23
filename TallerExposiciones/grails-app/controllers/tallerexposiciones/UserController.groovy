@@ -91,6 +91,11 @@ class UserController {
         redirect(uri:'/')
     }
 
+
+    def error(){
+
+    }
+
     def index(){
 
         def posts = Post.findAll()
