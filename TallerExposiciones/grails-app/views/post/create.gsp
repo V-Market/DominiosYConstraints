@@ -85,11 +85,11 @@
                 </g:form>
             </div>
         </div>
-        <hr/>
-
-        <footer>
-            <p> Aplicacion hecha por : V-Market </p>
-        </footer>
+    </div>
+    <hr/>
+    <footer>
+        <p> Aplicacion hecha por : V-Market </p>
+    </footer>
     </div>
 </body>
 </html>
