@@ -8,9 +8,11 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class ForumController {
 
+    def buscarService
+
     def beforeInterceptor = {
         println "Se ha ejecutado la Acción: "+getActionName()
-        session.setAttribute("authStatus","logged")
+
     }
     def afterInterceptor = {
         println "Se va a ejecutar la Acción: "+getActionName()
@@ -118,5 +120,10 @@ class ForumController {
     def forumsUser(){
         params.userForumList = Forum.findByAdmin(session.user)
         println params.userForumList
+    }
+
+    def buscar(params){
+
+        render buscarService.buscarForos(params)
     }
 }

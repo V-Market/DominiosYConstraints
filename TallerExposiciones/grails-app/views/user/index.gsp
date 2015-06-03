@@ -51,9 +51,17 @@
                 <g:else>
                     <div>
                         <!-- Este es el pedazo que cambia de la barra de navegacion -->
+
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="<g:createLink controller='user' action='login'/>" class="login">Login</a></li>
+                            <g:if test="${session.authStatus != null}">
+                                <li><a href="<g:createLink controller='user' action='logout'/>" class="login">Logout</a></li>
+
+                            </g:if>
+                            <g:else>
+                                <li><a href="<g:createLink controller='user' action='login'/>" class="login">Login</a></li>
+                            </g:else>
                         </ul>
+
                     </div>
                 </g:else>
             </div>

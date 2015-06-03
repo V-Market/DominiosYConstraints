@@ -1,6 +1,6 @@
 package tallerexposiciones
 
-
+import sun.security.jgss.GSSUtil
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -8,12 +8,15 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class UserController {
 
-    static defaultAction = "indexGrails"
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    def loginService
+
+    def buscarService
+
+    static defaultAction = "index"
+    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE", index: 'GET']
 
     def beforeInterceptor = {
         println " - Se va a ejecutar la accion: ${actionName}"
-        session.setAttribute("authStatus","logged")
     }
     def afterInterceptor = {
         println " - Se ha ejecutado la accion: ${actionName}"
@@ -62,7 +65,33 @@ class UserController {
         }
     }
 
-    def login(){}
+    def login(){
+
+    }
+    def doLoginService(){
+
+        if(session.authStatus.equals('logged')){
+            redirect(action: 'index')
+        }
+        def user = loginService.login( session, params)
+        if(user == null){
+            redirect(action: 'error')
+        }else{
+            if(user){
+                redirect(action: 'index')
+            }
+        }
+
+    }
+
+    def logout(){
+        loginService.logout(session)
+        redirect(uri: '/')
+    }
+
+    def buscar(){
+        render buscarService.buscarUsuarios(params)
+    }
     def authUserIndex(){}
 
     def doLogin(){
@@ -98,6 +127,7 @@ class UserController {
 
     def index(){
 
+
         def posts = Post.findAll()
         posts.sort(new Comparator<Post>() {
             @Override
@@ -125,4 +155,6 @@ class UserController {
         else
             params.popularForums = forums.subList(0,10)
     }
+
+
 }

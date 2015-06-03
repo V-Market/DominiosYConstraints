@@ -11,7 +11,6 @@ class PostController {
 
     def beforeInterceptor = {
         println "Se va a ejecutar la Acción: "+getActionName()
-        session.setAttribute("authStatus","logged")
     }
     def afterInterceptor = {
         println "Se ha ejecutado la Acción: "+getActionName()

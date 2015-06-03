@@ -55,7 +55,7 @@
                     <br/>
                     <g:passwordField name="password" class="form-control" placeholder="Password" />
                     <br/>
-                    <g:actionSubmit value="Entrar" name="submitButton" action="doLogin" class="btn btn-default" />
+                    <g:actionSubmit value="Entrar" name="submitButton" action="doLoginService" class="btn btn-default" />
                 </g:form>
             </div>
         </div>

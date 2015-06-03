@@ -12,7 +12,7 @@ class RegularController {
 
     def beforeInterceptor = {
         println " - Se va a ejecutar la accion: ${actionName}"
-        session.setAttribute("authStatus","logged")
+        session.authStatus = 'logged'
     }
     def afterInterceptor = {
         println " - Se ha ejecutado la accion: ${actionName}"
@@ -28,11 +28,13 @@ class RegularController {
     }
 
     def create() {
+
         respond new Regular(params)
     }
 
     @Transactional
     def save(Regular regularInstance) {
+        regularInstance.password = regularInstance.password.encodeAsMD5();
         if (regularInstance == null) {
             notFound()
             return

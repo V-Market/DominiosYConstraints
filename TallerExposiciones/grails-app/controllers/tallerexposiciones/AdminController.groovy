@@ -10,7 +10,6 @@ class AdminController {
 
     def beforeInterceptor = {
         println "Se va a ejecutar la Acción: "+getActionName()
-        session.setAttribute("authStatus","logged")
     }
     def afterInterceptor = {
         println "Se ha ejecutado la Acción: "+getActionName()
@@ -33,6 +32,7 @@ class AdminController {
 
     @Transactional
     def save(Admin adminInstance) {
+        adminInstance.password = adminInstance.password.encodeAsMD5();
         if (adminInstance == null) {
             notFound()
             return
