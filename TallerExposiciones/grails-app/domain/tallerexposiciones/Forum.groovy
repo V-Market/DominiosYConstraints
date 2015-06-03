@@ -3,6 +3,7 @@ package tallerexposiciones
 class Forum {
     static belongsTo = [admin: Admin]
     static hasMany = [posts: Post]
+    static searchable = true
 
     String name
     Date dateCreated = new Date();

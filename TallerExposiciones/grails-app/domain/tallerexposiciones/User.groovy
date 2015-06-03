@@ -2,6 +2,8 @@ package tallerexposiciones
 
 
 class User {
+    static searchable = true
+
     String name
     String lastname
     int age

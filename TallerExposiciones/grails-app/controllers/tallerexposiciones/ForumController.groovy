@@ -123,7 +123,6 @@ class ForumController {
     }
 
     def buscar(params){
-
         render buscarService.buscarForos(params)
     }
 }
